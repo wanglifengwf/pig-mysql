@@ -5,7 +5,7 @@ fork from vertica/Vertica-Hadoop-Connector  
 - store data using pig
 ```
 register ~/tslpig-2.0.jar;
-register ~/mysql-connector-java-5.1.41.jar;
+register ~/mysql-connector-java.jar;
 a = load '/tmp/aaa' using PigStorage(',') as (id:chararray, age:int);
 store a into '{testxx(insert into testxx values (?,?))}' using com.tsl.pig.MysqlStorer('host','test','3306','test','test');
 ```
@@ -13,7 +13,7 @@ store a into '{testxx(insert into testxx values (?,?))}' using com.tsl.pig.Mysql
 - read data using pig
 ```
 register ~/tslpig-1.0.jar;
-register ~/mysql-connector-java-5.1.41.jar;
+register ~/mysql-connector-java.jar;
 a = load 'sql://{select * from TESTXX }' using com.tsl.pig.VerticaLoader('HOST','TEST','3306','TEST','TEST');
 dump a;
 ```
