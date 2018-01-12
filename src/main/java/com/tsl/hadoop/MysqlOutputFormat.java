@@ -26,7 +26,7 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.util.ReflectionUtils;
 
 /**
- * Output formatter for loading data to Vertica
+ * Output formatter for loading data to mysql
  * 
  */
 public class MysqlOutputFormat extends OutputFormat<Text, MysqlRecord> {
@@ -85,7 +85,7 @@ public class MysqlOutputFormat extends OutputFormat<Text, MysqlRecord> {
 	public static void checkOutputSpecs(MysqlConfiguration vtconfig) throws IOException {
 		Relation vTable = new Relation(vtconfig.getOutputTableName());
 		if (vTable.isNull())
-		  throw new IOException("Vertica output requires a table name defined by "
+		  throw new IOException("mysql output requires a table name defined by "
 			  + MysqlConfiguration.OUTPUT_TABLE_NAME_PROP);
 		//String[] def = vtconfig.getOutputTableDef();
 		boolean dropTable = vtconfig.getDropTable();

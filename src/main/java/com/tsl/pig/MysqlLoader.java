@@ -55,7 +55,7 @@ public class MysqlLoader extends LoadFunc implements LoadMetadata{
 
 	private String contextSignature = null;
 
-    private RecordReader reader = null;
+	private RecordReader reader = null;
 
   	DateFormat datefmt = new SimpleDateFormat("yyyyMMdd");
   	DateFormat timefmt = new SimpleDateFormat("HHmmss");
@@ -69,18 +69,18 @@ public class MysqlLoader extends LoadFunc implements LoadMetadata{
 		this.password = password; 
 	}
 
-    public void setUDFContextSignature(String signature) {
-        this.contextSignature = signature;
-    }
+	public void setUDFContextSignature(String signature) {
+        	this.contextSignature = signature;
+	}
 
 	@Override
-    public InputFormat getInputFormat() throws IOException {
-        return new MysqlInputFormat(getQuery(), getParameters());
-    }
+    	public InputFormat getInputFormat() throws IOException {
+        	return new MysqlInputFormat(getQuery(), getParameters());
+    	}
 
 	private Tuple translate(MysqlRecord v) throws IOException {
 		int columns = v.size();
-        Tuple result = TupleFactory.getInstance().newTuple(columns);
+        	Tuple result = TupleFactory.getInstance().newTuple(columns);
 
 		for (int i = 0; i < columns; i++) {
 			Object obj = v.get(i);

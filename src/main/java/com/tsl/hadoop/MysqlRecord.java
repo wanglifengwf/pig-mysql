@@ -38,11 +38,9 @@ import org.apache.hadoop.io.VLongWritable;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.util.StringUtils;
 
-//import com.vertica.jdbc.VerticaDayTimeInterval;
-//import com.vertica.jdbc.VerticaYearMonthInterval;
 
 /**
- * Encapsulates a record read from or to be written to Vertica.
+ * Encapsulates a record read from or to be written to mysql.
  * 
  * A record consists of a list of columns in a specified order.
  * The list of columns is automatically determined by:
@@ -75,7 +73,7 @@ public class MysqlRecord implements Writable {
 	Vector<Integer> types = null;
 	/**
 	 * An ordered list of values of each column
-	 */ 
+	 */
 	Vector<Object> values = null;
 	/**
 	 * A map to easily get the position of a column from the name.
