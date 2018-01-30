@@ -14,6 +14,6 @@ store a into '{testxx(insert into testxx values (?,?))}' using com.tsl.pig.Mysql
 ```
 register ~/tslpig-1.0.jar;
 register ~/mysql-connector-java.jar;
-a = load 'sql://{select * from TESTXX }' using com.tsl.pig.VerticaLoader('HOST','TEST','3306','TEST','TEST');
+a = load 'sql://{select * from TESTXX }' using com.tsl.pig.MysqlLoader('HOST','TEST','3306','TEST','TEST');
 dump a;
 ```
